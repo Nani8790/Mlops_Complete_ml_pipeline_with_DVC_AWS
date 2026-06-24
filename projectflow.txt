@@ -24,3 +24,14 @@ do "dvc exp show" on terminal to show the experiments or use extension on vscode
 do "dvc exp remove (exp-name)" to remove exp (optional) | "dvc exp apply (exp-name)" to reproduce prev exp
 change params, re-run code (produce new exp)
 now git add, commit, push
+
+adding a remote s3 storage to dvc
+login to aws console
+create an IAM user (straight forward process)
+create s3 (enter a unique name and create)
+pip install dvc[s3]
+pip install awscli
+aws configure
+dvc remote add -d dvcstore s3://bucketname
+dvc commit-push the exp outcome that you want keep
+finally git add, commit, push
